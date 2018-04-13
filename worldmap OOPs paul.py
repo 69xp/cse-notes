@@ -11,24 +11,24 @@ class Room(object):
         self.name = name
         self.description = description
 
-
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
 
 bland_room = Room("Bland Room", 'There are three portals, one to the north, east, and west. Each is a different color.',
-                  'frontgate1', None, None,None, None, None, 'frontgate2', 'frontgate3')
+                  'frontgate1', None, None, None, None, None, 'frontgate2', 'frontgate3')
 frontgate1 = Room('Frontgate1', 'You are in front of a rusted iron gate which appears to be the entrance to a castle, '
                   'which could also be the mysterious yet famed, ACADEMY.',
                   None, None, None, 'parkinglot1', None, 'gym', 'frontgate2', None)
-frontgate2 = Room('Frontgate2','You are standing in front of a slightly burnished silver gate which appears to be the '
+frontgate2 = Room('Frontgate2', 'You are standing in front of a slightly burnished silver gate which appears to be the '
                   'entrance to a castle, which could also be the mysterious yet famed, ACADEMY.', None,
                   None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1')
 frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
                   ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None, None, 'parklot3',
                   None, None, None, 'frontgate2')
-parklot1 = Room('Abandoned Lot1', 'There are several rusted metal objects around you. One of the objects doors is opened'
+parklot1 = Room('Abandoned Lot1',
+                'There are several rusted metal objects around you. One of the objects doors is opened'
                 'with a strange pale-green light coming through the windshield '
                 'that disappears as you walk forward', 'frontgate1', None, None, 'hallway1', None, 'gym', None,
                 None,)
@@ -41,7 +41,8 @@ parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orc
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is ahrd to see anything here',
            None, 'parklot1', 'janitorcloset', None, 'lockerroom', 'lockerroom', None, None)
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
-                           'It appears to continue further south.', 'parklot1', None, None, 'hallway1')
+                           'It appears to continue further south.', 'parklot1', None, None, 'hallway1', None, None,
+                "room 23", "gym")
 
 current_node = bland_room
 directions = ['north', 'northwest', 'west', 'southwest', 'south', 'southeast', 'east', 'northeast']
