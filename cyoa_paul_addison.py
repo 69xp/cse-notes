@@ -306,21 +306,38 @@ parklot1 = Room('Abandoned Lot1',
                 'with a strange pale-green light coming through the windshield '
                 'that disappears as you walk forward', 'frontgate1', None, None, 'hallway1', None, 'gym', None,
                 None,)
-parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the sky looks dark and stormy. '
+parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
                 'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
                 'parkinglot3', 'parkinglot1')
 parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
                 'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1', None,
                 None, None, 'parklot2')
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is ahrd to see anything here',
-           None, 'parklot1', 'janitorcloset', None, 'lockerroom', 'lockerroom', None, None)
+           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None)
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
                            'It appears to continue further south.', 'parklot1', None, None, 'hallway2', None, None,
                 "room23", "gym")
 room23 = Room('Room23', 'the only entrance is the one you just came through, however there is an exit to the east',
               None, None, None, None, None, None, 'room22', 'hallway1')
-room22 = Room('Room23', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'room23', 'room21')
+room22 = Room('Room22', 'the only entrance is the one you just came through, however there is an exit to the east',
+              None, None, None, None, None, None, 'room21', 'room23')
+room21 = Room('Room21', 'the only entrance is the one you just came through, however there is an exit to the east',
+              None, None, None, None, None, None, 'the_quad', 'room22')
+hallway2 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
+                           'It appears to continue further south.', 'hallway1', None, None, 'hallway3', None, None,
+                "room20", "basket_ball_courts")
+room20 = Room('Room20', 'the only entrance is the one you just came through, however there is an exit to the east',
+              None, None, None, None, None, None, 'the_quad', 'room19')
+room19 = Room('Room19', 'the only entrance is the one you just came through, however there is an exit to the east',
+              None, None, None, None, None, None, 'kitchen', 'room18')
+room18 = Room('Room18', 'the only entrance is the one you just came through, however there is an exit to the east',
+              None, None, None, None, None, None, 'kitchen', 'room18')
+basket_ball_courts = Room('The Courts of the Sports', 'An apparent training yard for the defenseless', gym, None, None,
+                          'track_field', None, None, 'math_hall', 'field1')
+field1 = Room('Orchard of Bountifulness', 'A field full of  fruit trees and edible plants.', None, None, None, 'field2',
+              None, None, 'basket_ball_courts', None)
+math_hall = Room('Hall of Mind-numbers', 'A hall littered with math tools', None, None, None, None, None, None, 'p1',
+                 'basket_ball_courts')
 
 
 current_node = bland_room
