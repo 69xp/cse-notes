@@ -270,6 +270,7 @@ Skeleton2 = Character('Skelton C. Bones', 'A skeleton with armor, creaking along
 Skeleton3 = Character('Skelton D. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longsword"], 3, 4)
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
+Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
 
 
 class Room(object):
@@ -338,6 +339,17 @@ field1 = Room('Orchard of Bountifulness', 'A field full of  fruit trees and edib
               None, None, 'basket_ball_courts', None)
 math_hall = Room('Hall of Mind-numbers', 'A hall littered with math tools', None, None, None, None, None, None, 'p1',
                  'basket_ball_courts')
+p1 = Room('Storehouse1', 'A storehouse filled with interesting dust there are 2 exits.', None, None, None, None,
+          None, None, 'p2', 'math_hall')
+p2 = Room('Storehouse2', 'A storehouse filled with interesting boxes. there are 2 exits.', None, None, None, None,
+          None, None, 'p3', 'p1')
+# P3 put guardian character, guarding 3 weapons.
+p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
+          None, None, 'p2', 'p4')
+# put sleeping Cavern Queen in hall ERROR
+p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
+          None, None, 'p3', 'hall_error')
+hall_error = Room
 
 
 current_node = bland_room
