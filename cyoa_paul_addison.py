@@ -349,7 +349,11 @@ p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there ar
 # put sleeping Cavern Queen in hall ERROR
 p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
           None, None, 'p3', 'hall_error')
-hall_error = Room
+hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to youyou can faintly see a door at the'
+                                    ' end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room')
+throne_room = Room('Throne Room with the Pants of Doom', 'A dimly lit room full of objects for dark sorcery, hence the '
+                                                         'dimness, of course', None, None, None, None, None, None,
+                   'hall_error', None)
 
 
 current_node = bland_room
