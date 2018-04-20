@@ -310,6 +310,11 @@ parklot1 = Room('Abandoned Lot1',
 parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
                 'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
                 'parkinglot3', 'parkinglot1')
+library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient spell-books', 'parklot2', None, None,
+               'spell_practitioners_room', None, None, None, None)
+spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
+                                                            'over the room', 'library', None, None, None,
+                                'theatre_of_gore', 'The ')
 parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
                 'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1', None,
                 None, None, 'parklot2')
