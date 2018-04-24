@@ -317,7 +317,10 @@ spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with 
                                 'theatre_of_stuff', 'The_cave_system1', None, None)
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
                         'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
-mess_hall = Room()
+mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
+                 None, None, None, None)
+Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None, None,
+                           None)
 parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
                 'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1', None,
                 None, None, 'parklot2')

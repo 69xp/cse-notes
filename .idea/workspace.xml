@@ -34,8 +34,8 @@
       <file leaf-file-name="cyoa_paul_addison.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cyoa_paul_addison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="319" column="17" lean-forward="false" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
+            <state relative-caret-position="102">
+              <caret line="302" column="100" lean-forward="true" selection-start-line="302" selection-start-column="100" selection-end-line="302" selection-end-column="100" />
               <folding />
             </state>
           </provider>
@@ -109,7 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -122,6 +121,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,8 +563,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cyoa_paul_addison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="319" column="17" lean-forward="false" selection-start-line="319" selection-start-column="17" selection-end-line="319" selection-end-column="17" />
+        <state relative-caret-position="102">
+          <caret line="302" column="100" lean-forward="true" selection-start-line="302" selection-start-column="100" selection-end-line="302" selection-end-column="100" />
           <folding />
         </state>
       </provider>
