@@ -296,34 +296,11 @@ bland_room = Room("Bland Room", 'There are three portals, one to the north, east
 frontgate1 = Room('Frontgate1', 'You are in front of a rusted iron gate which appears to be the entrance to a castle, '
                   'which could also be the mysterious yet famed, ACADEMY.',
                   None, None, None, 'parkinglot1', None, 'gym', 'frontgate2', None)
-frontgate2 = Room('Frontgate2', 'You are standing in front of a slightly burnished silver gate which appears to be the '
-                  'entrance to a castle, which could also be the mysterious yet famed, ACADEMY.', None,
-                  None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1')
-frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
-                  ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None, None, 'parklot3',
-                  None, None, None, 'frontgate2')
 parklot1 = Room('Abandoned Lot1',
                 'There are several rusted metal objects around you. One of the objects doors is opened'
                 'with a strange pale-green light coming through the windshield '
                 'that disappears as you walk forward', 'frontgate1', None, None, 'hallway1', None, 'gym', None,
                 None,)
-parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
-                'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
-                'parkinglot3', 'parkinglot1')
-library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient spell-books', 'parklot2', None, None,
-               'spell_practitioners_room', None, None, None, None)
-spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
-                                                            'over the room', 'library', None, None, None,
-                                'theatre_of_stuff', 'The_cave_system1', None, None)
-theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
-                        'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
-mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
-                 None, None, None, None)
-Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None, None,
-                           None)
-parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
-                'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1', None,
-                None, None, 'parklot2')
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is ahrd to see anything here',
            None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None)
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
@@ -365,6 +342,30 @@ hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next 
 throne_room = Room('Throne Room with the Pants of Doom', 'A dimly lit room full of objects for dark sorcery, hence the '
                                                          'dimness, of course', None, None, None, None, None, None,
                    'hall_error', None)
+frontgate2 = Room('Frontgate2', 'You are standing in front of a slightly burnished silver gate which appears to be the '
+                  'entrance to a castle, which could also be the mysterious yet famed, ACADEMY.', None,
+                  None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1')
+parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
+                'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
+                'parkinglot3', 'parkinglot1')
+library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient spell-books', 'parklot2', None, None,
+               'spell_practitioners_room', None, None, None, None)
+spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
+                                                            'over the room', 'library', None, None, None,
+                                'theatre_of_stuff', 'The_cave_system1', None, None)
+theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
+                        'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
+mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
+                 None, None, None, None)
+Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None,
+                           'the_button_room', 'clone_room')
+frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
+                  ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None, None, 'parklot3',
+                  None, None, None, 'frontgate2')
+parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
+                'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1',
+                None, None, None, 'parklot2')
+abandonded_classroom1 = Room('')
 
 
 current_node = bland_room
