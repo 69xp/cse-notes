@@ -360,12 +360,17 @@ mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 
 Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None,
                            'the_button_room', 'clone_room')
 frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
-                  ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None, None, 'parklot3',
-                  None, None, None, 'frontgate2')
+                                ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None,
+                  None, 'parklot3', None, None, None, 'frontgate2')
 parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
                 'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1',
                 None, None, None, 'parklot2')
-abandonded_classroom1 = Room('')
+abandoned_classroom1 = Room('class_101', 'class lOl looks empty, to the naked eye...', 'parklot3', None, None,
+                            'abandoned_classroom2', None, None, 'abandoned_classroom3', None)
+abandoned_classroom2 = Room('class_101', 'class lOl looks empty, to the naked eye...', 'abandoned_classroom1', None,
+                            None, None, None, None, 'abandoned_classroom4', None)
+abandoned_classroom3 = Room('class_101', 'class lOl looks empty, to the naked eye...', None, None, None,
+                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1')
 
 
 current_node = bland_room
