@@ -352,7 +352,9 @@ library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient 
                'spell_practitioners_room', None, None, None, None)
 spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
                                                             'over the room', 'library', None, None, None,
-                                'theatre_of_stuff', 'The_cave_system1', None, None)
+                                'theatre_of_stuff', 'the_cave_system1', None, None)
+the_cave_system1 = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
+                                                    ' an unused _______', None, 'spell_practitioners_room', 'cavern1')
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
                         'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
 mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
@@ -367,10 +369,16 @@ parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orc
                 None, None, None, 'parklot2')
 abandoned_classroom1 = Room('class_101', 'class lOl looks empty, to the naked eye...', 'parklot3', None, None,
                             'abandoned_classroom2', None, None, 'abandoned_classroom3', None)
-abandoned_classroom2 = Room('class_101', 'class lOl looks empty, to the naked eye...', 'abandoned_classroom1', None,
+abandoned_classroom2 = Room('class_102', 'class lO2 looks empty, to the naked eye...', 'abandoned_classroom1', None,
                             None, None, None, None, 'abandoned_classroom4', None)
-abandoned_classroom3 = Room('class_101', 'class lOl looks empty, to the naked eye...', None, None, None,
+abandoned_classroom3 = Room('class_103', 'class lO3 looks empty, to the naked eye...', None, None, None,
                             'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1')
+abandoned_classroom4 = Room('class 104', 'class lO4 looks empty, to the naked eye...', 'abandoned_classroom3', None,
+                            None, None, None, None, 'abandoned_classroom6', 'abandoned_classroom2')
+abandoned_classroom5 = Room('class_105', 'class lO5 looks empty, to the naked eye...', None, None, None,
+                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1')
+abandoned_classroom6 = Room('class_106', 'there is a pedestal with a _______', 'abandoned_classroom5', None, None, None,
+                            None, None, None, 'abandoned_classroom4')
 
 
 current_node = bland_room
