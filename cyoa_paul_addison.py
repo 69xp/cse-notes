@@ -347,14 +347,17 @@ frontgate2 = Room('Frontgate2', 'You are standing in front of a slightly burnish
                   None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1')
 parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
                 'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
-                'parkinglot3', 'parkinglot1')
+                'parklot3', 'parklot1')
 library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient spell-books', 'parklot2', None, None,
                'spell_practitioners_room', None, None, None, None)
 spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
                                                             'over the room', 'library', None, None, None,
                                 'theatre_of_stuff', 'the_cave_system1', None, None)
-the_cave_system1 = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
-                                                    ' an unused _______', None, 'spell_practitioners_room', 'cavern1')
+the_cave_system = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
+                                                   ' an unused _______', None, 'spell_practitioners_room', 'cavern1',
+                       None, None, None, None, None)
+cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Fire', None, None, 'water',
+               None, 'the_cave_system', 'Tomb_Of_$tone', 'Tomb_Of_Winned',)
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
                         'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
 mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
