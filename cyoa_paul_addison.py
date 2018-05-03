@@ -264,10 +264,15 @@ class Character(object):
 
 HERO = Character('Randomly Generic Name', 'A blank slate', 6, ['butter knife'], 3, 3)
 Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes.', 5, ['bone club'], 4, 2)
-Skeleton1 = Character('Skelton B. Bones', 'A half-petrified skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
-Skeleton2 = Character('Skelton C. Bones', 'A skeleton with armor, creaking along slowly', 1,
+Skeleton1 = Character('CAPTAIN lowertain', 'A skeleton with some armor, creaking along slowly', 1,
                       ['Stone Rapier', "Iron Helm", 'Stone Boots', 'Rusty Light Armor', 'Iron Chausses'], 1, 1)
+Skeleton2 = Character('Skelton C. Bones', 'A half-petrified skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Skeleton3 = Character('Skelton D. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton4 = Character('Skelton E. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton5 = Character('Skelton F. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton6 = Character('Skelton G. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton7 = Character('Skelton H. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton8 = Character('Skelton I. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longsword"], 3, 4)
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
 Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
@@ -337,8 +342,8 @@ p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there ar
 # put sleeping Cavern Queen in hall ERROR
 p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
           None, None, 'p3', 'hall_error')
-hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to youyou can faintly see a door at the'
-                                    ' end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room')
+hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to you.  you can faintly see a door at '
+                                    'the end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room')
 throne_room = Room('Throne Room with the Pants of Doom', 'A dimly lit room full of objects for dark sorcery, hence the '
                                                          'dimness, of course', None, None, None, None, None, None,
                    'hall_error', None)
@@ -354,10 +359,17 @@ spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with 
                                                             'over the room', 'library', None, None, None,
                                 'theatre_of_stuff', 'the_cave_system1', None, None)
 the_cave_system = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
-                                                   ' an unused _______', None, 'spell_practitioners_room', 'cavern1',
-                       None, None, None, None, None)
-cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Fire', None, None, 'water',
-               None, 'the_cave_system', 'Tomb_Of_$tone', 'Tomb_Of_Winned',)
+                                                   ' an unused _______in the back of the room.', None,
+                       'spell_practitioners_room', 'cavern1', None, None, None, None, None)
+cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Tomb_of_Fyre', None, None,
+               'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer',)
+Tomb_of_Fyre = Room('Tomb_of_Fyre', 'A room with pits of lava in the floor, and columns of fire making a path.  '
+                                    'there are some GAUNTLETS OF FIRE at the end of the path,', None, None, None,
+                    'cavern1', None, None, None, None)
+Tomb_of_Watur = Room('Tomb_of_Watur', 'A room with pools of water, and a damp mist parting to reveal a path to '
+                                      'the AQUA LEGGINGS.', None, None, None, 'cavern1', None, None, None, None)
+Tomb_of_Urth = Room('Tomb_of_Urth', '_', None, None, None, 'cavern1', None, None, None, None)
+Tomb_of_Aer = Room('Tomb_of_Aer', '___', None, None, None, 'cavern1', None, None, None, None)
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
                         'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
 mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
