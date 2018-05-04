@@ -364,11 +364,12 @@ the_cave_system = Room('The Home of The Defender', 'there are several piles of o
 cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Tomb_of_Fyre', None, None,
                'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer',)
 Tomb_of_Fyre = Room('Tomb_of_Fyre', 'A room with pits of lava in the floor, and columns of fire making a path.  '
-                                    'there are some GAUNTLETS OF FIRE at the end of the path,', None, None, None,
+                                    'There are THE GAUNTLETS OF FIRE at the end of the path,', None, None, None,
                     'cavern1', None, None, None, None)
-Tomb_of_Watur = Room('Tomb_of_Watur', 'A room with pools of water, and a damp mist parting to reveal a path to '
-                                      'the AQUA LEGGINGS.', None, None, None, 'cavern1', None, None, None, None)
-Tomb_of_Urth = Room('Tomb_of_Urth', '_', None, None, None, 'cavern1', None, None, None, None)
+Tomb_of_Watur = Room('Tomb_of_Watur', 'A room with deep pools of water, and a damp mist parting to reveal a path to '
+                                      'THE PANTS MOST MARINE.', None, None, None, 'cavern1', None, None, None, None)
+Tomb_of_Urth = Room('Tomb_of_Urth', 'An earthy, musky room with rough spires of rock lining a path to '
+                                    'THE ROCK', None, None, None, 'cavern1', None, None, None, None)
 Tomb_of_Aer = Room('Tomb_of_Aer', '___', None, None, None, 'cavern1', None, None, None, None)
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
                         'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
