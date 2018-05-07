@@ -279,7 +279,8 @@ Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped 
 
 
 class Room(object):
-    def __init__(self, name, description, north, northeast, northwest, south, southeast, southwest, east, west):
+    def __init__(self, name, description, north, northeast, northwest, south, southeast, southwest, east, west,
+                 characters, items):
         self.north = north
         self.south = south
         self.east = east
@@ -290,6 +291,8 @@ class Room(object):
         self.southwest = southwest
         self.name = name
         self.description = description
+        self.items = items
+        self.characters = characters
 
     def move(self, direction):
         global current_node
@@ -297,104 +300,110 @@ class Room(object):
 
 
 bland_room = Room("Bland Room", 'There are three portals, one to the north, east, and west. Each is a different color.',
-                  'frontgate1', None, None, None, None, None, 'frontgate2', 'frontgate3')
+                  'frontgate1', None, None, None, None, None, 'frontgate2', 'frontgate3', None, None)
 frontgate1 = Room('Frontgate1', 'You are in front of a rusted iron gate which appears to be the entrance to a castle, '
                   'which could also be the mysterious yet famed, ACADEMY.',
-                  None, None, None, 'parkinglot1', None, 'gym', 'frontgate2', None)
+                  None, None, None, 'parkinglot1', None, 'gym', 'frontgate2', None, None, None,)
 parklot1 = Room('Abandoned Lot1',
                 'There are several rusted metal objects around you. One of the objects doors is opened'
-                'with a strange pale-green light coming through the windshield '
-                'that disappears as you walk forward', 'frontgate1', None, None, 'hallway1', None, 'gym', None,
-                None,)
-gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is ahrd to see anything here',
-           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None)
-hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
+                'with a strange pale-green light coming through the windshield that disappears as you walk forward',
+                'frontgate1', None, None, 'hallway1', None, 'gym', None,
+                None, None, 'TheoreticallyEatenSandwich',)
+gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard to see anything here',
+           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None, None, None,)
+janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, None, )
+hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west.'
                            'It appears to continue further south.', 'parklot1', None, None, 'hallway2', None, None,
-                "room23", "gym")
+                "room23", "gym", None, None,)
 room23 = Room('Room23', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'room22', 'hallway1')
+              None, None, None, None, None, None, 'room22', 'hallway1', None, None,)
 room22 = Room('Room22', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'room21', 'room23')
+              None, None, None, None, None, None, 'room21', 'room23', None, None,)
 room21 = Room('Room21', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'the_quad', 'room22')
+              None, None, None, None, None, None, 'the_quad', 'room22', None, None,)
 hallway2 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
                            'It appears to continue further south.', 'hallway1', None, None, 'hallway3', None, None,
-                "room20", "basket_ball_courts")
+                "room20", "basket_ball_courts", None, None,)
 room20 = Room('Room20', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'the_quad', 'room19')
+              None, None, None, None, None, None, 'the_quad', 'room19', None, None,)
 room19 = Room('Room19', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'kitchen', 'room18')
+              None, None, None, None, None, None, 'kitchen', 'room18', None, None,)
 room18 = Room('Room18', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'kitchen', 'room18')
+              None, None, None, None, None, None, 'kitchen', 'room18', None, None,)
 basket_ball_courts = Room('The Courts of the Sports', 'An apparent training yard for the defenseless', gym, None, None,
-                          'track_field', None, None, 'math_hall', 'field1')
+                          'track_field', None, None, 'math_hall', 'field1', None, None,)
 field1 = Room('Orchard of Bountifulness', 'A field full of  fruit trees and edible plants.', None, None, None, 'field2',
-              None, None, 'basket_ball_courts', None)
+              None, None, 'basket_ball_courts', None, None, None,)
 math_hall = Room('Hall of Mind-numbers', 'A hall littered with math tools', None, None, None, None, None, None, 'p1',
-                 'basket_ball_courts')
+                 'basket_ball_courts', None, None,)
 p1 = Room('Storehouse1', 'A storehouse filled with interesting dust there are 2 exits.', None, None, None, None,
-          None, None, 'p2', 'math_hall')
+          None, None, 'p2', 'math_hall', None, None,)
 p2 = Room('Storehouse2', 'A storehouse filled with interesting boxes. there are 2 exits.', None, None, None, None,
-          None, None, 'p3', 'p1')
+          None, None, 'p3', 'p1', None, None,)
 # P3 put guardian character, guarding 3 weapons.
 p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
-          None, None, 'p2', 'p4')
+          None, None, 'p2', 'p4', None, None,)
 # put sleeping Cavern Queen in hall ERROR
 p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
-          None, None, 'p3', 'hall_error')
+          None, None, 'p3', 'hall_error', None, None,)
 hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to you.  you can faintly see a door at '
-                                    'the end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room')
+                                    'the end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room',
+                  None, None,)
 throne_room = Room('Throne Room with the Pants of Doom', 'A dimly lit room full of objects for dark sorcery, hence the '
                                                          'dimness, of course', None, None, None, None, None, None,
-                   'hall_error', None)
+                   'hall_error', None, None, None,)
 frontgate2 = Room('Frontgate2', 'You are standing in front of a slightly burnished silver gate which appears to be the '
                   'entrance to a castle, which could also be the mysterious yet famed, ACADEMY.', None,
-                  None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1')
+                  None, None, 'parklot2', None, None, 'frontgate3', 'frontgate1', None, None,)
 parklot2 = Room('Abandoned Lot 2', 'the ground is dry and cracked, yet the air smells like it just rained. '
                 'There are paths to the north, east, west, and south.', 'frontgate2', None, None, 'library', None, None,
-                'parklot3', 'parklot1')
+                'parklot3', 'parklot1', None, None,)
 library = Room('Reading Room of the Ancient Texts', 'A room filled with ancient spell-books', 'parklot2', None, None,
-               'spell_practitioners_room', None, None, None, None)
+               'spell_practitioners_room', None, None, None, None, None, None,)
 spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with spell ingredients and blast marks all'
                                                             'over the room', 'library', None, None, None,
-                                'theatre_of_stuff', 'the_cave_system1', None, None)
+                                'theatre_of_stuff', 'the_cave_system1', None, None, None, None,)
 the_cave_system = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
                                                    ' an unused _______in the back of the room.', None,
-                       'spell_practitioners_room', 'cavern1', None, None, None, None, None)
+                       'spell_practitioners_room', 'cavern1', None, None, None, None, None, None, None,)
 cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Tomb_of_Fyre', None, None,
-               'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer',)
+               'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer', None, None,)
 Tomb_of_Fyre = Room('Tomb_of_Fyre', 'A room with pits of lava in the floor, and columns of fire making a path.  '
                                     'There are THE GAUNTLETS OF FIRE at the end of the path,', None, None, None,
-                    'cavern1', None, None, None, None)
+                    'cavern1', None, None, None, None, None, None,)
 Tomb_of_Watur = Room('Tomb_of_Watur', 'A room with deep pools of water, and a damp mist parting to reveal a path to '
-                                      'THE PANTS MOST MARINE.', None, None, None, 'cavern1', None, None, None, None)
+                                      'THE PANTS MOST MARINE.', None, None, None, 'cavern1', None, None, None, None,
+                     None, None,)
 Tomb_of_Urth = Room('Tomb_of_Urth', 'An earthy, musky room with rough spires of rock lining a path to '
-                                    'THE ROCK', None, None, None, 'cavern1', None, None, None, None)
-Tomb_of_Aer = Room('Tomb_of_Aer', '___', None, None, None, 'cavern1', None, None, None, None)
+                                    'THE ROCKSHARD', None, None, None, 'cavern1', None, None, None, None, None, None,)
+Tomb_of_Aer = Room('Tomb_of_Aer', '___', None, None, None, 'cavern1', None, None, None, None, None, None,)
 theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones of the dead', None,
-                        'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None)
+                        'spell_practitioners_room', None, 'mess_hall', None, None, "Double_you_building", None, None,
+                        None,)
 mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
-                 None, None, None, None)
+                 None, None, None, None, None, None,)
 Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None,
-                           'the_button_room', 'clone_room')
+                           'the_button_room', 'clone_room', None, None,)
 frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
                                 ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None,
-                  None, 'parklot3', None, None, None, 'frontgate2')
+                  None, 'parklot3', None, None, None, 'frontgate2', None, None,)
 parklot3 = Room('Abandoned Lot 3', 'There are about 16 trees in the apparent orchard, and the grass is way overgrown. '
                 'There are paths to the north, south, and west', 'frontgate3', None, None, 'abandoned_classroom1',
-                None, None, None, 'parklot2')
+                None, None, None, 'parklot2', None, None,)
 abandoned_classroom1 = Room('class_101', 'class lOl looks empty, to the naked eye...', 'parklot3', None, None,
-                            'abandoned_classroom2', None, None, 'abandoned_classroom3', None)
+                            'abandoned_classroom2', None, None, 'abandoned_classroom3', None, None, None,)
 abandoned_classroom2 = Room('class_102', 'class lO2 looks empty, to the naked eye...', 'abandoned_classroom1', None,
-                            None, None, None, None, 'abandoned_classroom4', None)
+                            None, None, None, None, 'abandoned_classroom4', None, None, None,)
 abandoned_classroom3 = Room('class_103', 'class lO3 looks empty, to the naked eye...', None, None, None,
-                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1')
+                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1', None,
+                            None,)
 abandoned_classroom4 = Room('class 104', 'class lO4 looks empty, to the naked eye...', 'abandoned_classroom3', None,
-                            None, None, None, None, 'abandoned_classroom6', 'abandoned_classroom2')
+                            None, None, None, None, 'abandoned_classroom6', 'abandoned_classroom2', None, None,)
 abandoned_classroom5 = Room('class_105', 'class lO5 looks empty, to the naked eye...', None, None, None,
-                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1')
+                            'abandoned_classroom4', None, None, 'abandoned_classroom5', 'abandoned_classroom1', None,
+                            None,)
 abandoned_classroom6 = Room('class_106', 'there is a pedestal with a _______', 'abandoned_classroom5', None, None, None,
-                            None, None, None, 'abandoned_classroom4')
+                            None, None, None, 'abandoned_classroom4', None, None,)
 
 
 current_node = bland_room
