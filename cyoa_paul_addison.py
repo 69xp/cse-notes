@@ -264,18 +264,20 @@ class Character(object):
 
 HERO = Character('Randomly Generic Name', 'A blank slate', 6, ['butter knife'], 3, 3)
 Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes.', 5, ['bone club'], 4, 2)
-Skeleton1 = Character('CAPTAIN lowertain', 'A skeleton with some armor, creaking along slowly', 1,
+Skeleton1 = Character('Skelton B. Bones', 'A skeleton with some armor, creaking along slowly', 1,
                       ['Stone Rapier', "Iron Helm", 'Stone Boots', 'Rusty Light Armor', 'Iron Chausses'], 1, 1)
 Skeleton2 = Character('Skelton C. Bones', 'A half-petrified skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Skeleton3 = Character('Skelton D. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
-Skeleton4 = Character('Skelton E. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton4 = Character('Skelton E. Bones', 'A skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Skeleton5 = Character('Skelton F. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
-Skeleton6 = Character('Skelton G. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
-Skeleton7 = Character('Skelton H. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
+Skeleton6 = Character('Skelton G. Bones', 'A skeleton with three arms, creaking along slowly', 1, ['Stone Rapier'], 1,
+                      1)
+Skeleton7 = Character('Skelton H. Bones', 'A skeleton with no arms, creaking along slowly', 1, [''], 1, 1)
 Skeleton8 = Character('Skelton I. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longsword"], 3, 4)
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
 Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
+SportsTroll = Character('Gym Creacher', 'a huge troll made out of sports equipment', 12, ['HockeySword'], 13, 14)
 
 
 class Room(object):
@@ -291,8 +293,8 @@ class Room(object):
         self.southwest = southwest
         self.name = name
         self.description = description
-        self.items = items
         self.characters = characters
+        self.items = items
 
     def move(self, direction):
         global current_node
@@ -308,9 +310,13 @@ parklot1 = Room('Abandoned Lot1',
                 'There are several rusted metal objects around you. One of the objects doors is opened'
                 'with a strange pale-green light coming through the windshield that disappears as you walk forward',
                 'frontgate1', None, None, 'hallway1', None, 'gym', None,
-                None, None, 'TheoreticallyEatenSandwich',)
+                None, None, ['TheoreticallyEatenSandwich'])
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard to see anything here',
-           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None, None, None,)
+           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None,
+           ['Gym Creacher'], None,)
+
+lockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two', None,
+                  None, None, None, "gym", None, None, None, None, ['ThrowingKnife', 'ShinyCape'])
 janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, None, )
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west.'
                            'It appears to continue further south.', 'parklot1', None, None, 'hallway2', None, None,
@@ -372,7 +378,7 @@ Tomb_of_Fyre = Room('Tomb_of_Fyre', 'A room with pits of lava in the floor, and 
                                     'There are THE GAUNTLETS OF FIRE at the end of the path,', None, None, None,
                     'cavern1', None, None, None, None, None, None,)
 Tomb_of_Watur = Room('Tomb_of_Watur', 'A room with deep pools of water, and a damp mist parting to reveal a path to '
-                                      'THE PANTS MOST MARINE.', None, None, None, 'cavern1', None, None, None, None,
+                                      'THE AQUARION HELM', None, None, None, 'cavern1', None, None, None, None,
                      None, None,)
 Tomb_of_Urth = Room('Tomb_of_Urth', 'An earthy, musky room with rough spires of rock lining a path to '
                                     'THE ROCKSHARD', None, None, None, 'cavern1', None, None, None, None, None, None,)
