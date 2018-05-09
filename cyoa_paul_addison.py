@@ -75,6 +75,14 @@ class BoomcornLauncher(Ranged):
         self.speed = 3
 
 
+class MagicThrowingKnife(Ranged):
+    def __init__(self, name, description, atk_boost, speed, damage_infliction):
+        super(MagicThrowingKnife, self).__init__(name, description, atk_boost, speed, damage_infliction)
+        self.atk_boost = 2
+        self.damage_infliction = 1
+        self.speed = 9
+
+
 class Consumable(Item):
     def __init__(self, name, description, regen):
         super(Consumable, self).__init__(name, description)
@@ -314,9 +322,9 @@ parklot1 = Room('Abandoned Lot1',
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard to see anything here',
            None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None,
            ['Gym Creacher'], None,)
-
-lockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two', None,
-                  None, None, None, "gym", None, None, None, None, ['ThrowingKnife', 'ShinyCape'])
+Flockerroom = Room('sorceresses dressing room', 'A tidily organized room', )
+Mlockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two', None,
+                  None, None, None, "gym", None, None, None, None, ['MagicThrowingKnife', 'ShinyCape'])
 janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, None, )
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west.'
                            'It appears to continue further south.', 'parklot1', None, None, 'hallway2', None, None,
