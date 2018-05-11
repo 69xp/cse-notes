@@ -48,7 +48,7 @@ class PlasticGladius(Melee):
         super(PlasticGladius, self).__init__(name, description, atk_boost, speed, damage_infliction)
         self.speed = 1
         self.damage_infliction = 4
-        self.atk_boost = 6
+        self.atk_boost = 4
 
 
 class StygianBoneSteelLongsword(Melee):
@@ -56,6 +56,14 @@ class StygianBoneSteelLongsword(Melee):
         super(StygianBoneSteelLongsword, self).__init__(name, description, atk_boost, speed, damage_infliction)
         self.speed = 2
         self.damage_infliction = 5
+        self.atk_boost = 6
+
+
+class Shardsaber(Melee):
+    def __init__(self, name, description, atk_boost, speed, damage_infliction):
+        super(Shardsaber, self).__init__(name, description, atk_boost, speed, damage_infliction)
+        self.speed = 3
+        self.damage_infliction = 6
         self.atk_boost = 6
 
 
@@ -237,6 +245,13 @@ class ShinyCape(Cape):
         self.distraction = 5
 
 
+class ShatterersShielding(Cape):
+    def __init__(self, name, description, def_boost, distraction):
+        super(ShatterersShielding, self).__init__(name, description, def_boost, distraction)
+        self.distraction = 5
+        self.def_boost = 6
+
+
 class Character(object):
     def __init__(self, name, description, health, items, atk, defense):
         self.name = name
@@ -286,6 +301,7 @@ Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longswor
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
 Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
 SportsTroll = Character('Gym Creacher', 'a huge troll made out of sports equipment', 12, ['HockeySword'], 13, 14)
+Minitar = Character()
 
 
 class Room(object):
@@ -320,12 +336,14 @@ parklot1 = Room('Abandoned Lot1',
                 'frontgate1', None, None, 'hallway1', None, 'gym', None,
                 None, None, ['TheoreticallyEatenSandwich'])
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard to see anything here',
-           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'lockerroom', 'lockerroom', None, None,
+           None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'Flockerroom', 'Mlockerroom', None, None,
            ['Gym Creacher'], None,)
-Flockerroom = Room('sorceresses dressing room', 'A tidily organized room', )
-Mlockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two', None,
-                  None, None, None, "gym", None, None, None, None, ['MagicThrowingKnife', 'ShinyCape'])
-janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, None, )
+Flockerroom = Room('sorceresses dressing room', 'A tidily organized room', None, None, 'gym', None, None, None, None,
+                   None, None, None, )
+Mlockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two',
+                   None, 'gym', None, None, None, None, None, None, None, ['MagicThrowingKnife', 'ShinyCape'])
+janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, [
+                     'Dadao of Cleanliness'], )
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west.'
                            'It appears to continue further south.', 'parklot1', None, None, 'hallway2', None, None,
                 "room23", "gym", None, None,)
@@ -333,15 +351,16 @@ room23 = Room('Room23', 'the only entrance is the one you just came through, how
               None, None, None, None, None, None, 'room22', 'hallway1', None, None,)
 room22 = Room('Room22', 'the only entrance is the one you just came through, however there is an exit to the east',
               None, None, None, None, None, None, 'room21', 'room23', None, None,)
+
 room21 = Room('Room21', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'the_quad', 'room22', None, None,)
+              None, None, None, None, None, None, 'the_quad', 'room22', ['Minitar'], None,)
 hallway2 = Room('Hallway', 'A hallway that has a passageway to the east and west. '
                            'It appears to continue further south.', 'hallway1', None, None, 'hallway3', None, None,
                 "room20", "basket_ball_courts", None, None,)
 room20 = Room('Room20', 'the only entrance is the one you just came through, however there is an exit to the east',
               None, None, None, None, None, None, 'the_quad', 'room19', None, None,)
 room19 = Room('Room19', 'the only entrance is the one you just came through, however there is an exit to the east',
-              None, None, None, None, None, None, 'kitchen', 'room18', None, None,)
+              None, None, None, None, None, None, 'kitchen', 'room18', None, ['Shardsaber', 'Shatterers Shielding'],)
 room18 = Room('Room18', 'the only entrance is the one you just came through, however there is an exit to the east',
               None, None, None, None, None, None, 'kitchen', 'room18', None, None,)
 basket_ball_courts = Room('The Courts of the Sports', 'An apparent training yard for the defenseless', gym, None, None,
@@ -378,7 +397,7 @@ spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with 
                                                             'over the room', 'library', None, None, None,
                                 'theatre_of_stuff', 'the_cave_system1', None, None, None, None,)
 the_cave_system = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
-                                                   ' an unused _______in the back of the room.', None,
+                                                   ' an unused BOOMCORN LAUNCHER in the back of the room.', None,
                        'spell_practitioners_room', 'cavern1', None, None, None, None, None, None, None,)
 cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Tomb_of_Fyre', None, None,
                'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer', None, None,)
