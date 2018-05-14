@@ -67,6 +67,14 @@ class Shardsaber(Melee):
         self.atk_boost = 6
 
 
+class BattleAxe(Melee):
+    def __init__(self, name, description, atk_boost, speed, damage_infliction):
+        super(BattleAxe, self).__init__(name, description, atk_boost, speed, damage_infliction)
+        self.speed = 1
+        self.damage_infliction = 8
+        self.atk_boost = 7
+
+
 class Ranged(Weapon):
     def __init__(self, name, description, atk_boost, speed, damage_infliction):
         super(Ranged, self).__init__(name, description, atk_boost)
@@ -295,13 +303,14 @@ Skeleton4 = Character('Skelton E. Bones', 'A skeleton, creaking along slowly', 1
 Skeleton5 = Character('Skelton F. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Skeleton6 = Character('Skelton G. Bones', 'A skeleton with three arms, creaking along slowly', 1, ['Stone Rapier'], 1,
                       1)
-Skeleton7 = Character('Skelton H. Bones', 'A skeleton with no arms, creaking along slowly', 1, [''], 1, 1)
+Skeleton7 = Character('Skelton H. Bones', 'A skeleton with no arms, creeping along slowly', 1, [''], 1, 1)
 Skeleton8 = Character('Skelton I. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
 Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longsword"], 3, 4)
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
 Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
 SportsTroll = Character('Gym Creacher', 'a huge troll made out of sports equipment', 12, ['HockeySword'], 13, 14)
-Minitar = Character()
+Minitar = Character('Minitar', 'A small bull made out of tar standing upright, wielding a battle axe.', 6,
+                    ['Battle Axe'], 6, 6)
 
 
 class Room(object):
@@ -375,13 +384,13 @@ p2 = Room('Storehouse2', 'A storehouse filled with interesting boxes. there are 
           None, None, 'p3', 'p1', None, None,)
 # P3 put guardian character, guarding 3 weapons.
 p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
-          None, None, 'p2', 'p4', None, None,)
+          None, None, 'p2', 'p4', None, ['BoomcornLauncher',],)
 # put sleeping Cavern Queen in hall ERROR
 p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
           None, None, 'p3', 'hall_error', None, None,)
 hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to you.  you can faintly see a door at '
                                     'the end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room',
-                  None, None,)
+                  ['Leviathan'], None,)
 throne_room = Room('Throne Room with the Pants of Doom', 'A dimly lit room full of objects for dark sorcery, hence the '
                                                          'dimness, of course', None, None, None, None, None, None,
                    'hall_error', None, None, None,)
