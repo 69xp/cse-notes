@@ -75,6 +75,14 @@ class BattleAxe(Melee):
         self.atk_boost = 7
 
 
+class IonWielder(Melee):
+    def __init__(self, name, description, atk_boost, speed, damage_infliction):
+        super(IonWielder, self).__init__(name, description, atk_boost, speed, damage_infliction)
+        self.speed = 1
+        self.damage_infliction = 8
+        self.atk_boost = 7
+
+
 class Ranged(Weapon):
     def __init__(self, name, description, atk_boost, speed, damage_infliction):
         super(Ranged, self).__init__(name, description, atk_boost)
@@ -96,6 +104,14 @@ class MagicThrowingKnife(Ranged):
         super(MagicThrowingKnife, self).__init__(name, description, atk_boost, speed, damage_infliction)
         self.atk_boost = 2
         self.damage_infliction = 1
+        self.speed = 9
+
+
+class RazoredgeArchbow(Ranged):
+    def __init__(self, name, description, atk_boost, speed, damage_infliction):
+        super(RazoredgeArchbow, self).__init__(name, description, atk_boost, speed, damage_infliction)
+        self.atk_boost = 5
+        self.damage_infliction = 7
         self.speed = 9
 
 
@@ -311,6 +327,8 @@ Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped 
 SportsTroll = Character('Gym Creacher', 'a huge troll made out of sports equipment', 12, ['HockeySword'], 13, 14)
 Minitar = Character('Minitar', 'A small bull made out of tar standing upright, wielding a battle axe.', 6,
                     ['Battle Axe'], 6, 6)
+Gourdian_of_the_Squash = Character('Gourdian of the Sa-Squash', 'A towering figure made from different gourds and '
+                                                                'squashes', 8, None, 10, 5)
 
 
 class Room(object):
@@ -384,10 +402,10 @@ p2 = Room('Storehouse2', 'A storehouse filled with interesting boxes. there are 
           None, None, 'p3', 'p1', None, None,)
 # P3 put guardian character, guarding 3 weapons.
 p3 = Room('Storehouse3', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
-          None, None, 'p2', 'p4', None, ['BoomcornLauncher',],)
+          None, None, 'p2', 'p4', None, ['IonWielder', 'RazoredgeArchbow', ],)
 # put sleeping Cavern Queen in hall ERROR
 p4 = Room('Storehouse4', 'A storehouse filled with interesting weapons. there are 2 exits.', None, None, None, None,
-          None, None, 'p3', 'hall_error', None, None,)
+          None, None, 'p3', 'hall_error', ['Leviathan', ], None,)
 hall_error = Room('Hall_of_Air-or', 'there is a slumbering leviathan right next to you.  you can faintly see a door at '
                                     'the end of the passage.', None, None, None, None, None, None, 'p4', 'throne_room',
                   ['Leviathan'], None,)
@@ -407,9 +425,10 @@ spell_practitioners_room = Room('Spell Practitioners Room', 'A room strewn with 
                                 'theatre_of_stuff', 'the_cave_system1', None, None, None, None,)
 the_cave_system = Room('The Home of The Defender', 'there are several piles of odds and ends, and there appears to be'
                                                    ' an unused BOOMCORN LAUNCHER in the back of the room.', None,
-                       'spell_practitioners_room', 'cavern1', None, None, None, None, None, None, None,)
+                       'spell_practitioners_room', 'cavern1', None, None, None, None, None, None,
+                       ['BoomcornLauncher', ])
 cavern1 = Room('The_Fourbidden_Tombs_Entrance', 'skeletons and bones litter the corridor', 'Tomb_of_Fyre', None, None,
-               'Tomb_Of_Watur', None, 'the_cave_system', 'Tomb_Of_Urth', 'Tomb_Of_Aer', None, None,)
+               'Tomb_of_Watur', None, 'the_cave_system', 'Tomb_of_Urth', 'Tomb_of_Aer', None, None,)
 Tomb_of_Fyre = Room('Tomb_of_Fyre', 'A room with pits of lava in the floor, and columns of fire making a path.  '
                                     'There are THE GAUNTLETS OF FIRE at the end of the path,', None, None, None,
                     'cavern1', None, None, None, None, None, None,)
