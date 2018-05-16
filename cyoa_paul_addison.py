@@ -443,8 +443,11 @@ theatre_of_stuff = Room('theatre_of_stuff', 'a gladiator pit, filled with bones 
                         None,)
 mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 'theatre_of_stuff', None, None, None,
                  None, None, None, None, None, None,)
-Double_you_building = Room('Double_you_building', 'A magic testing area', None, None, None, None, None, None,
-                           'the_button_room', 'clone_room', None, None,)
+Double_you_building = Room('Double_you_building', 'A magic testing area', 'clone_room', None, None, None, None, None,
+                           'the_button_room', 'theatre_of_stuff', None, None,)
+clone_room = Room('clone room', 'A cell-replication chamber', None, None, None, '')
+the_button_room = Room('Button Room', 'A room with a pointless button', None, None, None, None, None, None, None,
+                       'Double_you_building', None, None,)
 frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
                                 ' to a castle, which could also be the mysterious yet famed, ACADEMY.', None, None,
                   None, 'parklot3', None, None, None, 'frontgate2', None, None,)
