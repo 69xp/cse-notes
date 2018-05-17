@@ -1,4 +1,5 @@
 import random
+inventory = []
 
 
 class Item(object):
@@ -6,8 +7,8 @@ class Item(object):
         self.name = name
         self.description = description
 
-    def pickup(self):
-        print("You pick up the %s" % self.name)
+    def steal(self):
+        print("You took the %s" % self.name)
 
     def drop(self):
         print('you drop the %s' % self.name)
@@ -281,10 +282,10 @@ class Character(object):
         self.name = name
         self.description = description
         self.health = health
-        self.inventory = items
         self.dmg = atk
         self.defense = defense
         self.death = False
+        self.items = items
 
     def attack(self, opponent):
         attack = random.randint(1, 3)
@@ -307,6 +308,9 @@ class Character(object):
             if self.health == 0:
                 self.death = True
                 print('%s is dead...' % self.name)
+
+    def steal(self):
+        Item.steal(self.name)
 
 
 HERO = Character('Randomly Generic Name', 'A blank slate', 6, ['butter knife'], 3, 3)
@@ -333,7 +337,7 @@ Gourdian_of_the_Squash = Character('Gourdian of the Sa-Squash', 'A towering figu
 
 class Room(object):
     def __init__(self, name, description, north, northeast, northwest, south, southeast, southwest, east, west,
-                 characters, items):
+                 characters, objects):
         self.north = north
         self.south = south
         self.east = east
@@ -345,7 +349,7 @@ class Room(object):
         self.name = name
         self.description = description
         self.characters = characters
-        self.items = items
+        self.objects = objects
 
     def move(self, direction):
         global current_node
@@ -445,7 +449,8 @@ mess_hall = Room('cafeteria_land', 'a gym-like room filled with rotting food.', 
                  None, None, None, None, None, None,)
 Double_you_building = Room('Double_you_building', 'A magic testing area', 'clone_room', None, None, None, None, None,
                            'the_button_room', 'theatre_of_stuff', None, None,)
-clone_room = Room('clone room', 'A cell-replication chamber', None, None, None, '')
+clone_room = Room('clone room', 'A cell-replication chamber', None, None, None, 'Double_you_building', None, None,
+                  None, None, None, None)
 the_button_room = Room('Button Room', 'A room with a pointless button', None, None, None, None, None, None, None,
                        'Double_you_building', None, None,)
 frontgate3 = Room('Frontgate3', 'You are standing in front of an engraved golden gate,which appears to be the entrance'
@@ -479,11 +484,22 @@ while True:
     # Prints the current node
     print(current_node.name)
     print(current_node.description)
+    print(current_node.objects)
+    print("INSTRUCTIONS"
+          "")
 
     # Takes what you put in
     command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
+
+    # if 'steal' in command:
+    #     if current_node.item is not None:
+    #         HERO.steal(current_node.item)
+    #         current_node.item = None
+    #         inventory.append(current_node.item)
+    #     else:
+    #         print("There's nothing in the room.")
 
     # Redefines the command to a new direction
     elif command in short_directions:
