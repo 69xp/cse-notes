@@ -277,6 +277,11 @@ class ShatterersShielding(Cape):
         self.def_boost = 6
 
 
+BoneClub = Melee('Bone Club', 'A large club made from what looks like a femur', 1, 1, 4)
+ButterKnife = Melee('Butter Knife', 'A blade forged for butter most spreadable', 1, 1, 2)
+PlasticGladius = Melee('Plastic Gladius', '')
+
+
 class Character(object):
     def __init__(self, name, description, health, items, atk, defense):
         self.name = name
@@ -313,8 +318,8 @@ class Character(object):
         Item.steal(self.name)
 
 
-HERO = Character('Randomly Generic Name', 'A blank slate', 6, ['butter knife'], 3, 3)
-Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes.', 5, ['bone club'], 4, 2)
+HERO = Character('Randomly Generic Name', 'A blank slate', 6, [ButterKnife], 3, 3)
+Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes.', 5, [BoneClub], 4, 2)
 Skeleton1 = Character('Skelton B. Bones', 'A skeleton with some armor, creaking along slowly', 1,
                       ['Stone Rapier', "Iron Helm", 'Stone Boots', 'Rusty Light Armor', 'Iron Chausses'], 1, 1)
 Skeleton2 = Character('Skelton C. Bones', 'A half-petrified skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
@@ -368,7 +373,7 @@ parklot1 = Room('Abandoned Lot1',
                 None, None, ['TheoreticallyEatenSandwich'])
 gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard to see anything here',
            None, 'parklot1', 'janitorcloset', 'basket_ball_courts', 'Flockerroom', 'Mlockerroom', None, None,
-           ['Gym Creacher'], None,)
+           [SportsTroll], None,)
 Flockerroom = Room('sorceresses dressing room', 'A tidily organized room', None, None, 'gym', None, None, None, None,
                    None, None, None, )
 Mlockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two',
@@ -493,6 +498,18 @@ while True:
     if command == 'quit':
         quit(0)
 
+        # Redefines the command to a new direction
+    elif command in short_directions:
+        pos = short_directions.index(command)
+        command = directions[pos]
+
+        # Movement
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print('You should not, will not, and cannot go this way!')
+
     # if 'steal' in command:
     #     if current_node.item is not None:
     #         HERO.steal(current_node.item)
@@ -501,17 +518,6 @@ while True:
     #     else:
     #         print("There's nothing in the room.")
 
-    # Redefines the command to a new direction
-    elif command in short_directions:
-        pos = short_directions.index(command)
-        command = directions[pos]
-
-    # Movement
-    if command in directions:
-        try:
-            current_node.move(command)
-        except KeyError:
-            print('You should not, will not, and cannot go this way!')
     elif command[:7] == 'pick up':
         item = command[8:]
     else:
