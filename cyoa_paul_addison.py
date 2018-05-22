@@ -28,76 +28,12 @@ class Melee(Weapon):
         self.atk_boost = atk_boost
 
 
-class BoneClub(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(BoneClub, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 1
-        self.damage_infliction = 4
-        self.atk_boost = 1
-
-
-class ButterKnife(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(ButterKnife, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 1
-        self.damage_infliction = 2
-        self.atk_boost = 1
-
-
-class PlasticGladius(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(PlasticGladius, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 1
-        self.damage_infliction = 4
-        self.atk_boost = 4
-
-
-class StygianBoneSteelLongsword(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(StygianBoneSteelLongsword, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 2
-        self.damage_infliction = 5
-        self.atk_boost = 6
-
-
-class Shardsaber(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(Shardsaber, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 3
-        self.damage_infliction = 6
-        self.atk_boost = 6
-
-
-class BattleAxe(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(BattleAxe, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 1
-        self.damage_infliction = 8
-        self.atk_boost = 7
-
-
-class IonWielder(Melee):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(IonWielder, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.speed = 1
-        self.damage_infliction = 8
-        self.atk_boost = 7
-
-
 class Ranged(Weapon):
     def __init__(self, name, description, atk_boost, speed, damage_infliction):
         super(Ranged, self).__init__(name, description, atk_boost)
         self.speed = speed
         self.damage_infliction = damage_infliction
         self.atk_boost = atk_boost
-
-
-class BoomcornLauncher(Ranged):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(BoomcornLauncher, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.atk_boost = 4
-        self.damage_infliction = 2
-        self.speed = 3
 
 
 class MagicThrowingKnife(Ranged):
@@ -279,7 +215,15 @@ class ShatterersShielding(Cape):
 
 BoneClub = Melee('Bone Club', 'A large club made from what looks like a femur', 1, 1, 4)
 ButterKnife = Melee('Butter Knife', 'A blade forged for butter most spreadable', 1, 1, 2)
-PlasticGladius = Melee('Plastic Gladius', '')
+PlasticGladius = Melee('Plastic Gladius', 'A short sword composed of plasticite', 4, 4, 1)
+StickianBoneSteelLongsword = Melee('Stickian Bone Steel Longsword', 'A longsword forged with superheated carbon from '
+                                                                    'the bones of your enemies, '
+                                                                    'and cooled in the River Sticks', 6, 2, 5)
+CattleAxe = Melee('Cattle Axe', 'A mechanized axe with the force of a hundred raging bulls', 9, 1, 8)
+IonWielder = Melee('IonWielder', 'A beautifully crafted sword, made from Glorium', 10, 2, 12)
+BoomcornLauncher = Ranged('Boomcorn Launcher', 'A crossbow-esque mechanism, that fires explosive popcorn kernels', 4, 3,
+                          2)
+MagicShuriken = Ranged('A magic throwing star', 'A magic throwing star', 2, 5, 3)
 
 
 class Character(object):
@@ -319,7 +263,7 @@ class Character(object):
 
 
 HERO = Character('Randomly Generic Name', 'A blank slate', 6, [ButterKnife], 3, 3)
-Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes.', 5, [BoneClub], 4, 2)
+Ogre = Character('Yo-Ogre-Urt', 'like a cyclops only with two eyes, and made of yo-gurt', 5, [BoneClub], 4, 2)
 Skeleton1 = Character('Skelton B. Bones', 'A skeleton with some armor, creaking along slowly', 1,
                       ['Stone Rapier', "Iron Helm", 'Stone Boots', 'Rusty Light Armor', 'Iron Chausses'], 1, 1)
 Skeleton2 = Character('Skelton C. Bones', 'A half-petrified skeleton, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
@@ -330,12 +274,12 @@ Skeleton6 = Character('Skelton G. Bones', 'A skeleton with three arms, creaking 
                       1)
 Skeleton7 = Character('Skelton H. Bones', 'A skeleton with no arms, creeping along slowly', 1, [''], 1, 1)
 Skeleton8 = Character('Skelton I. Bones', 'A skeleton with one arm, creaking along slowly', 1, ['Stone Rapier'], 1, 1)
-Necromancer = Character('Lebn Fundi Toyte', '', 8, ["Stygian Bone Steel Longsword"], 3, 4)
+Necromancer = Character('Lebn Fundi Toyte', '', 8, [StickianBoneSteelLongsword], 3, 4)
 Dragon = Character('Bone Dragon', "A ghostly dragon of death", 30, [''], 12, 18)
 Leviathan = Character('Cavern Queen', 'A slumbering serpent of the sky, trapped in the depths', 45, [''], 20, 25)
 SportsTroll = Character('Gym Creacher', 'a huge troll made out of sports equipment', 12, ['HockeySword'], 13, 14)
 Minitar = Character('Minitar', 'A small bull made out of tar standing upright, wielding a battle axe.', 6,
-                    ['Battle Axe'], 6, 6)
+                    [CattleAxe], 6, 6)
 Gourdian_of_the_Squash = Character('Gourdian of the Sa-Squash', 'A towering figure made from different gourds and '
                                                                 'squashes', 8, None, 10, 5)
 
@@ -377,7 +321,7 @@ gym = Room('Gymnasium', 'you are looking at a large, dimly lit room. it is hard 
 Flockerroom = Room('sorceresses dressing room', 'A tidily organized room', None, None, 'gym', None, None, None, None,
                    None, None, None, )
 Mlockerroom = Room('sorcerers dressing room', 'A room stuffed with articles of clothing, with a shiny cape or two',
-                   None, 'gym', None, None, None, None, None, None, None, ['MagicThrowingKnife', 'ShinyCape'])
+                   None, 'gym', None, None, None, None, None, None, None, [MagicShuriken, ShinyCape])
 janitorcloset = Room('Janitor Closet', 'lol', None, None, None, None, None, 'gym', None, None, None, [
                      'Dadao of Cleanliness'], )
 hallway1 = Room('Hallway', 'A hallway that has a passageway to the east and west.'

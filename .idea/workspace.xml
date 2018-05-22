@@ -34,21 +34,21 @@
       <file leaf-file-name="cyoa_paul_addison.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cyoa_paul_addison.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="281" column="43" lean-forward="false" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
+            <state relative-caret-position="161">
+              <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
                 <element signature="e#317#457#0" expanded="false" />
                 <element signature="e#485#739#0" expanded="false" />
-                <element signature="e#9315#10321#0" expanded="false" />
-                <element signature="e#17807#17953#0" expanded="false" />
-                <element signature="e#18109#18250#0" expanded="false" />
-                <element signature="e#18372#18557#0" expanded="false" />
-                <element signature="e#18695#18839#0" expanded="false" />
-                <element signature="e#19201#19335#0" expanded="false" />
-                <element signature="e#19514#19688#0" expanded="false" />
-                <element signature="e#20097#20268#0" expanded="false" />
-                <element signature="e#20394#20531#0" expanded="false" />
-                <element signature="e#20656#20775#0" expanded="false" />
+                <element signature="e#7757#8763#0" expanded="false" />
+                <element signature="e#16253#16399#0" expanded="false" />
+                <element signature="e#16555#16696#0" expanded="false" />
+                <element signature="e#16818#17003#0" expanded="false" />
+                <element signature="e#17141#17285#0" expanded="false" />
+                <element signature="e#17647#17781#0" expanded="false" />
+                <element signature="e#17960#18134#0" expanded="false" />
+                <element signature="e#18543#18714#0" expanded="false" />
+                <element signature="e#18840#18977#0" expanded="false" />
+                <element signature="e#19102#19221#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -565,21 +565,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cyoa_paul_addison.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="281" column="43" lean-forward="false" selection-start-line="281" selection-start-column="43" selection-end-line="281" selection-end-column="43" />
+        <state relative-caret-position="161">
+          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
           <folding>
             <element signature="e#317#457#0" expanded="false" />
             <element signature="e#485#739#0" expanded="false" />
-            <element signature="e#9315#10321#0" expanded="false" />
-            <element signature="e#17807#17953#0" expanded="false" />
-            <element signature="e#18109#18250#0" expanded="false" />
-            <element signature="e#18372#18557#0" expanded="false" />
-            <element signature="e#18695#18839#0" expanded="false" />
-            <element signature="e#19201#19335#0" expanded="false" />
-            <element signature="e#19514#19688#0" expanded="false" />
-            <element signature="e#20097#20268#0" expanded="false" />
-            <element signature="e#20394#20531#0" expanded="false" />
-            <element signature="e#20656#20775#0" expanded="false" />
+            <element signature="e#7757#8763#0" expanded="false" />
+            <element signature="e#16253#16399#0" expanded="false" />
+            <element signature="e#16555#16696#0" expanded="false" />
+            <element signature="e#16818#17003#0" expanded="false" />
+            <element signature="e#17141#17285#0" expanded="false" />
+            <element signature="e#17647#17781#0" expanded="false" />
+            <element signature="e#17960#18134#0" expanded="false" />
+            <element signature="e#18543#18714#0" expanded="false" />
+            <element signature="e#18840#18977#0" expanded="false" />
+            <element signature="e#19102#19221#0" expanded="false" />
           </folding>
         </state>
       </provider>
