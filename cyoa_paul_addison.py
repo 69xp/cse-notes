@@ -36,44 +36,16 @@ class Ranged(Weapon):
         self.atk_boost = atk_boost
 
 
-class MagicThrowingKnife(Ranged):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(MagicThrowingKnife, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.atk_boost = 2
-        self.damage_infliction = 1
-        self.speed = 9
-
-
-class RazoredgeArchbow(Ranged):
-    def __init__(self, name, description, atk_boost, speed, damage_infliction):
-        super(RazoredgeArchbow, self).__init__(name, description, atk_boost, speed, damage_infliction)
-        self.atk_boost = 5
-        self.damage_infliction = 7
-        self.speed = 9
-
-
 class Consumable(Item):
     def __init__(self, name, description, regen):
         super(Consumable, self).__init__(name, description)
         self.regen = regen
 
 
-class Pizza(Consumable):
-    def __init__(self, name, description, regen):
-        super(Pizza, self).__init__(name, description, regen)
-        self.regen = 3
-
-
 class Potion(Consumable):
     def __init__(self, name, description, regen):
         super(Potion, self).__init__(name, description, regen)
         self.regen = 5
-
-
-class TheoreticallyEatenSandwich(Consumable):
-    def __init__(self, name, description, regen):
-        super(TheoreticallyEatenSandwich, self).__init__(name, description, regen)
-        self.regen = 3
 
 
 class Armor(Item):
@@ -223,7 +195,11 @@ CattleAxe = Melee('Cattle Axe', 'A mechanized axe with the force of a hundred ra
 IonWielder = Melee('IonWielder', 'A beautifully crafted sword, made from Glorium', 10, 2, 12)
 BoomcornLauncher = Ranged('Boomcorn Launcher', 'A crossbow-esque mechanism, that fires explosive popcorn kernels', 4, 3,
                           2)
-MagicShuriken = Ranged('A magic throwing star', 'A magic throwing star', 2, 5, 3)
+MagicShuriken = Ranged('A Magical Shuriken', 'A magic throwing star', 2, 5, 3)
+RazoredgeArchbow = Ranged('Razoredge Archbow', 'A recurve bow of tremendous power, with stabby blades all over it', 5,
+                          9, 7)
+PizzaBurg = Consumable('Double-decker Pizza Burger', 'Two pizzas inside two burgers, in between two pizzas', 6)
+TheoreticallyEatenSandwich = Consumable('TheoreticallyEatenSandwich', 'A sandwich that has been theoretically eaten', 9)
 
 
 class Character(object):
